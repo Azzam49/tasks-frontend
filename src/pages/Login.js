@@ -1,11 +1,19 @@
 import React from 'react'
 import logo from '../assets/images/bootstrap-logo.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const handleLoginSubmit = (event) => {
+        event.preventDefault();
+        navigate("/");
+    }
+
     return (
     <>
         <main className="form-user w-100 m-auto">
-            <form>
+            <form onSubmit={(event) => {handleLoginSubmit(event)}}>
             <img className="mb-4" src={logo} alt="" width="72" height="57"/>
             <h1 className="h3 mb-3 fw-normal">Please login</h1>
 
