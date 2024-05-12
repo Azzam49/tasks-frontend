@@ -40,10 +40,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 ---------------------------------------------------------------------------
-STATUS = WOKRING-ON
+STATUS = DONE
 3_feature/first-page-login-form
 
-TODO:
+DONE:
 - add login form on App.js
 
 
@@ -60,10 +60,17 @@ Notes:
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 4_feature/move-login-page-as-a-react-component
 
+DONE:
 - move login form on sperate component
+
+Notes:
+- (rafce -> shortcut to arrow function with export)
+    - requires to download this VsCode extenstion :
+        - ES7+ React/Redux/React-Native snippets
+        - by : dsznajder
 ---------------------------------------------------------------------------
 
 
