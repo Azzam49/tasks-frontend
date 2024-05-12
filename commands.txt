@@ -9,6 +9,8 @@ nvm install 20
 
 nvm use 20
 
+node -v
+
 npx create-react-app tasks-frontend
 
 cd tasks-frontend
@@ -20,7 +22,7 @@ npm start
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 2_feature/integrate-bootstrap-5
 
 https://getbootstrap.com/docs/5.3/getting-started/introduction/
@@ -34,3 +36,65 @@ npm install bootstrap@v5.3.3
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 ---------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------
+STATUS = WOKRING-ON
+3_feature/first-page-login-form
+
+TODO:
+- add login form on App.js
+
+
+Notes:
+- Make sure to add a closing brackets on elements as <input> at the end to get it working, example :
+    - <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+    - before fix is not end with brackets as :
+    - <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+- Replace all 'class' by 'className'
+- Replace images import by:
+    - import logo from './assets/images/bootstrap-logo.svg';
+    - <img className="mb-4" src={logo} alt="" width="72" height="57"/>
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+4_feature/move-login-page-as-a-react-component
+
+- move login form on sperate component
+---------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+5_feature/setup-react-router-dom
+
+TODO:
+- set url for login form as '/login'
+- create home page that have 'hello world' content
+- set url for home page as '/'
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+6_feature/use-navigate-for-go-to-home-from-login-page
+
+TODO:
+- import and use useNavigate
+- navigate to '/' home page after clicked on login button
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+7_feature/add-usestate-control-for-login-fields
+
+https://chat.openai.com/share/a6e9dfaa-e449-4bf3-99d4-0d7db425e96d
+---------------------------------------------------------------------------
+
+
+TODO : after implement the above branches, then plan the next branches
