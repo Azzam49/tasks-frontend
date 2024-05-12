@@ -76,13 +76,16 @@ Notes:
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 5_feature/setup-react-router-dom
 
-TODO:
+DONE:
 - set url for login form as '/login'
-- create home page that have 'hello world' content
+- create home page that have 'dashboard' content
 - set url for home page as '/'
+
+Notes:
+- require install 'npm install react-router-dom'
 ---------------------------------------------------------------------------
 
 
