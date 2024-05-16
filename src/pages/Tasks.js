@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs5';
@@ -7,7 +7,13 @@ const Tasks = () => {
     useEffect(() => {
         // Initialize DataTable after the component is mounted
         $('#tasksTable').DataTable();
-      }, []);
+    }, []);
+
+    const [tasks, setTasks] = useState([
+        {owner : "John Doe", title: "Complete the HTML coding assesment", tag: "Coding", created_at: "2023-04-25", status: "Completed"},
+        {owner : "John Doe", title: "Complete the CSS coding assesment", tag: "Coding", created_at: "2023-04-21", status: "Completed"},
+        {owner : "John Doe", title: "Complete the JS coding assesment", tag: "Coding", created_at: "2024-05-10", status: "Pending"},
+    ])
 
     return (
         <>
@@ -41,57 +47,25 @@ const Tasks = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Complete the HTML coding assesment</td>
-                        <td><span className="badge text-bg-secondary">Sport</span></td>
-                        <td>2023-04-25</td>
-                        <td><span className="badge text-bg-success">Completed</span></td>
-                        <td>
-                        <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
-                            <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
-                        </button>
-                        </td>
-                        <td>
-                        <button type="button" className="btn btn-danger">
-                            <svg className="bi"><use xlinkHref="#trash"/></svg>
-                        </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Complete the CSS coding assesment</td>
-                        <td><span className="badge text-bg-secondary">Coding</span></td>
-                        <td>2023-04-21</td>
-                        <td><span className="badge text-bg-success">Completed</span></td>
-                        <td>
-                        <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
-                            <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
-                        </button>
-                        </td>
-                        <td>
-                        <button type="button" className="btn btn-danger">
-                            <svg className="bi"><use xlinkHref="#trash"/></svg>
-                        </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Complete the JS coding assesment</td>
-                        <td><span className="badge text-bg-secondary">Coding</span></td>
-                        <td>2021-04-21</td>
-                        <td><span className="badge text-bg-warning">Pending</span></td>
-                        <td>
-                        <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
-                            <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
-                        </button>
-                        </td>
-                        <td>
-                        <button type="button" className="btn btn-danger">
-                            <svg className="bi"><use xlinkHref="#trash"/></svg>
-                        </button>
-                        </td>
-                    </tr>
+                    {tasks.map((task, index) => (
+                        <tr key={index}>
+                            <td>{task.owner}</td>
+                            <td>{task.title}</td>
+                            <td><span className="badge text-bg-secondary">{task.tag}</span></td>
+                            <td>{task.created_at}</td>
+                            <td><span className="badge text-bg-success">{task.status}</span></td>
+                            <td>
+                            <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                                <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
+                            </button>
+                            </td>
+                            <td>
+                            <button type="button" className="btn btn-danger">
+                                <svg className="bi"><use xlinkHref="#trash"/></svg>
+                            </button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
                 <tfoot>
                     <tr>
