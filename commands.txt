@@ -121,11 +121,75 @@ DONE:
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 9_feature/apply-the-sidebar-component-with-react-route
 
-TODO :
+DONE :
 - fix layout so that all pages uses the header & sidebar components
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = DONE
+10_feature/add-datatable-on-tasks-page
+
+DONE :
+- add datatable on tasks page
+- integrate it correctly and check if its working (eg. it's search field works)
+
+1 - npm install jquery datatables.net datatables.net-bs5
+    - https://www.npmjs.com/package/jquery
+    - https://www.npmjs.com/package/datatables.net
+    - https://www.npmjs.com/package/datatables.net-bs5
+2 - import table from tasks.html to Tasks.js and replace those:
+    - xlink:href to xLinkHref
+    - class= to className=
+    - style="width:100%" to style={{width: "100%"}}
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = TODO
+11_feature/use-usestate-on-tasks-datatable-records
+
+TODO :
+- store the default datatable records on useState
+- use a loop to display the useState records on datatable
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+12_feature/on-tasks-page-databable-set-the-correct-badge-color-on-status-column-for-tasks
+
+TODO :
+- set the correct class name to control color of badge depending on the status of the task
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = TODO
+13_feature/add-create-new-task-modal-on-tasks-page
+
+TODO :
+- add create new task button on tasks page
+- open dialog of create new task by click on button
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = TODO
+14_feature/create-component-for-task-modal-form
+
+TODO :
+- move the dialog form model of task on a sperate component
+- use it on create task
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = TODO
+15_feature/reuse-the-task-model-component-for-edit-task
+
+TODO :
+- make component dynamic with props to be used for both create or edit a task
+- make the edit button on datatable to open the model with correct record to edit
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
