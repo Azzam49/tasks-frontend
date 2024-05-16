@@ -148,20 +148,20 @@ DONE :
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 11_feature/use-usestate-on-tasks-datatable-records
 
-WORKING-ON :
+DONE :
 - store the default datatable records on useState
 - use a loop to display the useState records on datatable
 ---------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 12_feature/on-tasks-page-databable-set-the-correct-badge-color-on-status-column-for-tasks
 
-TODO :
+DONE :
 - set the correct class name to control color of badge depending on the status of the task
 ---------------------------------------------------------------------------
 
