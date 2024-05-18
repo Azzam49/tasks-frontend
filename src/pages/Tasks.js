@@ -16,9 +16,9 @@ const Tasks = () => {
     ])
 
     return (
-        <>
+        <div>
 
-            <div className="modal fade" id="createNewTaskModal" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div key="createTaskModel" className="modal fade" id="createNewTaskModal" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -130,7 +130,7 @@ const Tasks = () => {
                     </tr>
                 </tfoot>
             </table>
-        </>
+        </div>
     )
 }
 
