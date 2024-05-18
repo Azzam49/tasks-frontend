@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import $ from 'jquery';
-import 'datatables.net';
-import 'datatables.net-bs5';
+import React, { useState } from 'react'
 import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 
 const Tasks = () => {
-    useEffect(() => {
-        // Initialize DataTable after the component is mounted
-        $('#tasksTable').DataTable();
-    }, []);
 
     const [tasks, setTasks] = useState([
         {owner : "John Doe", title: "Complete the HTML coding assesment", tag: "Coding", created_at: "2023-04-25", status: "Completed"},

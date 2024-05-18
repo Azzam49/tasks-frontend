@@ -207,14 +207,24 @@ DONE :
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 16_feature/move-tasks-datatable-as-a-component
 
-WORKING-ON :
+DONE :
 - Create component for tasks datatable
 - Set edit and delete buttons of datatable as props
 - Use the datatable on Tasks page
 ---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+17_feature/move-taskdatable-assets-into-the-components-file
+
+WORKING-ON :
+- Move datatable assets and initiating useEffect inside TaskDatatable component
+---------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE

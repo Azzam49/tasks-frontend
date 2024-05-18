@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import $ from 'jquery';
+import 'datatables.net';
+import 'datatables.net-bs5';
 
 const TaskDatatable = ({tasks, hasEdit, hasDelete}) => {
+
+    useEffect(() => {
+        // Initialize DataTable after the component is mounted
+        $('#tasksTable').DataTable();
+    }, []);
+
     return (
         <>
             <table id="tasksTable" className="table table-striped" style={{width: "100%"}}>
