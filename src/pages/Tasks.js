@@ -11,16 +11,20 @@ const Tasks = () => {
         {owner : "John Doe", title: "Complete the JS coding assesment", tag: "Coding", created_at: "2024-05-10", status: "Pending"},
     ])
 
+    const [tags, setTags] = useState(["Important", "Common", "Easy"])
+
     return (
         <div>
 
             <TaskModal
                 modalId="createNewTaskModal"
                 modalTitle="Create New Task"
+                tags={tags}
             />
             <TaskModal
                 modalId="editTaskModal"
                 modalTitle="Edit Task"
+                tags={tags}
             />
 
             <DatatableIcons />

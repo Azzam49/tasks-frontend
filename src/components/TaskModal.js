@@ -1,6 +1,7 @@
 import React from 'react'
 
-const TaskModal = ({modalId, modalTitle}) => {
+const TaskModal = ({modalId, modalTitle, tags}) => {
+
     return (
         <div className="modal fade" id={modalId} data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -23,8 +24,9 @@ const TaskModal = ({modalId, modalTitle}) => {
                             <label htmlFor="task-tag" className="form-label">Tag</label>
                             <select className="form-select" id="task-tag" required>
                             <option value="">Choose...</option>
-                            <option value="Important">Important</option>
-                            <option value="Common">Common</option>
+                            {tags.map((tag, index ) => (
+                                <option key={index} value={tag}>{tag}</option>
+                            ))}
                             </select>
                         </div>
                     </div>

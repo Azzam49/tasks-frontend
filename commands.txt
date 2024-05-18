@@ -254,12 +254,22 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 21_feature/move-icons-of-taskdatatable-as-a-component
 
-WORKING-ON :
+DONE :
 - Create DatatableIcons component for icons used by all tasks datatables
 - Use it where needed
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+22_feature/read-task-tags-from-usestate
+
+WORKING-ON :
+- Create useState to store the task tags
+- Use the useState tags on the tags dropdown selection
 ---------------------------------------------------------------------------
 
 
