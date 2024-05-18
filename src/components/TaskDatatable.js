@@ -3,16 +3,16 @@ import $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs5';
 
-const TaskDatatable = ({tasks, hasEdit, hasDelete}) => {
+const TaskDatatable = ({tableId, tasks, hasEdit, hasDelete}) => {
 
     useEffect(() => {
         // Initialize DataTable after the component is mounted
-        $('#tasksTable').DataTable();
+        $(`#${tableId}`).DataTable();
     }, []);
 
     return (
-        <>
-            <table id="tasksTable" className="table table-striped" style={{width: "100%"}}>
+        <div>
+            <table id={tableId} className="table table-striped" style={{width: "100%"}}>
                 <thead>
                     <tr>
                         <th>Owner</th>
@@ -47,7 +47,7 @@ const TaskDatatable = ({tasks, hasEdit, hasDelete}) => {
                                 <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
                                     <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
                                 </button>
-}
+    }
                             </td>
                             {hasDelete &&
                                 <td>
@@ -71,7 +71,7 @@ const TaskDatatable = ({tasks, hasEdit, hasDelete}) => {
                     </tr>
                 </tfoot>
             </table>
-        </>
+        </div>
     )
 }
 

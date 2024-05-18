@@ -45,6 +45,7 @@ const Tasks = () => {
             </div>
 
             <TaskDatatable
+                tableId={"tasksTable"}
                 tasks={tasks}
                 hasEdit={true}
                 hasDelete={true}

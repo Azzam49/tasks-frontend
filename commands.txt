@@ -218,13 +218,21 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 17_feature/move-taskdatable-assets-into-the-components-file
 
-WORKING-ON :
+DONE :
 - Move datatable assets and initiating useEffect inside TaskDatatable component
 ---------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+18_feature/use-taskdatatable-component-for-pending-tasks-page
+
+WORKING-ON :
+- Use TaskDatatable component for the PendingTasks page
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE
