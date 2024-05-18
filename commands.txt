@@ -166,12 +166,17 @@ DONE :
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 13_feature/add-create-new-task-modal-on-tasks-page
 
-TODO :
+DONE :
 - add create new task button on tasks page
 - open dialog of create new task by click on button
+
+1 - After copy create task modal:
+    - replace class= with className=
+    - add closing / for <input> element
+    - replace for= with htmlFor=
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
