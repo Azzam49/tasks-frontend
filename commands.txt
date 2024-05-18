@@ -236,13 +236,21 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 19_feature/add-markdone-column-on-taskdatatable-component-to-serve-pending-tasks-page
 
-WORKING-ON :
+DONE :
 - Add Markdone on TaskDatatable
 ---------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+20_feature/use-taskdatatable-component-for-completed-tasks-page
+
+WORKING-ON :
+- Use TaskDatatable component for the CompletedTasks page
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE
