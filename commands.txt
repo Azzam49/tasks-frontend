@@ -190,12 +190,20 @@ WORKING-ON :
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = CANCELLED
 15_feature/reuse-the-task-model-component-for-edit-task
 
-TODO :
+CANCELLED :
 - make component dynamic with props to be used for both create or edit a task
 - make the edit button on datatable to open the model with correct record to edit
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+15_feature/fix-sidebar-highlight-on-active-page
+
+WORKING-ON :
+- Make the highlight css effect on sidebar to follow active page
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------

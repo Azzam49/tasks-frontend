@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -54,28 +54,40 @@ const Header = () => {
                         <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                             <ul className="nav flex-column">
                                 <li className="nav-item">
-                                <Link className="nav-link d-flex align-items-center gap-2 active" aria-current="page" to="/">
+                                <NavLink
+                                    className="nav-link d-flex align-items-center gap-2"
+                                    activeClassName="active"
+                                    aria-current="page" to="/">
                                     <svg className="bi"><use xlinkHref="#house"/></svg>
                                     Dashboard
-                                </Link>
+                                </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                <Link className="nav-link d-flex align-items-center gap-2" to="/tasks">
+                                <NavLink
+                                    className="nav-link d-flex align-items-center gap-2"
+                                    activeClassName="active"
+                                    to="/tasks">
                                     <svg className="bi"><use xlinkHref="#file-earmark"/></svg>
                                     Tasks
-                                </Link>
+                                </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                <Link className="nav-link d-flex align-items-center gap-2" to="/pending-tasks">
+                                <NavLink
+                                    className="nav-link d-flex align-items-center gap-2"
+                                    activeClassName="active"
+                                    to="/pending-tasks">
                                     <svg className="bi"><use xlinkHref="#file-earmark-text"/></svg>
                                     Pending Tasks
-                                </Link>
+                                </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                <Link className="nav-link d-flex align-items-center gap-2" to="/completed-tasks">
+                                <NavLink
+                                    className="nav-link d-flex align-items-center gap-2"
+                                    activeClassName="active"
+                                    to="/completed-tasks">
                                     <svg className="bi"><use xlinkHref="#check-circle"/></svg>
                                     Completed Tasks
-                                </Link>
+                                </NavLink>
                                 </li>
                             </ul>
 
