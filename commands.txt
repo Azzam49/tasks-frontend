@@ -227,12 +227,22 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 18_feature/use-taskdatatable-component-for-pending-tasks-page
 
-WORKING-ON :
+DONE :
 - Use TaskDatatable component for the PendingTasks page
 ---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+19_feature/add-markdone-column-on-taskdatatable-component-to-serve-pending-tasks-page
+
+WORKING-ON :
+- Add Markdone on TaskDatatable
+---------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE

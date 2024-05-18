@@ -3,7 +3,7 @@ import $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs5';
 
-const TaskDatatable = ({tableId, tasks, hasEdit, hasDelete}) => {
+const TaskDatatable = ({tableId, tasks, hasEdit=false, hasDelete=false, hasMarkDone=false}) => {
 
     useEffect(() => {
         // Initialize DataTable after the component is mounted
@@ -22,6 +22,7 @@ const TaskDatatable = ({tableId, tasks, hasEdit, hasDelete}) => {
                         <th>Status</th>
                         {hasEdit && <th>Edit</th>}
                         {hasDelete && <th>Delete</th>}
+                        {hasMarkDone && <th>Mark Done</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -42,18 +43,25 @@ const TaskDatatable = ({tableId, tasks, hasEdit, hasDelete}) => {
                                     {task.status}
                                 </span>
                             </td>
-                            <td>
                             {hasEdit &&
-                                <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
-                                    <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
-                                </button>
-    }
-                            </td>
+                                <td>
+                                    <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                                        <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
+                                    </button>
+                                </td>
+                            }
                             {hasDelete &&
                                 <td>
-                                <button type="button" className="btn btn-danger">
-                                    <svg className="bi"><use xlinkHref="#trash"/></svg>
-                                </button>
+                                    <button type="button" className="btn btn-danger">
+                                        <svg className="bi"><use xlinkHref="#trash"/></svg>
+                                    </button>
+                                </td>
+                            }
+                            {hasMarkDone &&
+                                <td>
+                                    <button type="button" class="btn btn-success">
+                                    <svg class="bi"><use xlinkHref="#check-circle"/></svg>
+                                    </button>
                                 </td>
                             }
                         </tr>
@@ -68,6 +76,7 @@ const TaskDatatable = ({tableId, tasks, hasEdit, hasDelete}) => {
                         <th>Status</th>
                         {hasEdit && <th>Edit</th>}
                         {hasDelete && <th>Delete</th>}
+                        {hasMarkDone && <th>Mark Done</th>}
                     </tr>
                 </tfoot>
             </table>
