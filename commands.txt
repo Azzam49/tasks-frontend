@@ -199,11 +199,21 @@ CANCELLED :
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 15_feature/fix-sidebar-highlight-on-active-page
 
-WORKING-ON :
+DONE :
 - Make the highlight css effect on sidebar to follow active page
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+16_feature/move-tasks-datatable-as-a-component
+
+WORKING-ON :
+- Create component for tasks datatable
+- Set edit and delete buttons of datatable as props
+- Use the datatable on Tasks page
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
