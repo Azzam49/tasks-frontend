@@ -245,12 +245,23 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 20_feature/use-taskdatatable-component-for-completed-tasks-page
 
-WORKING-ON :
+DONE :
 - Use TaskDatatable component for the CompletedTasks page
 ---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+21_feature/move-icons-of-taskdatatable-as-a-component
+
+WORKING-ON :
+- Create DatatableIcons component for icons used by all tasks datatables
+- Use it where needed
+---------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE

@@ -59,8 +59,8 @@ const TaskDatatable = ({tableId, tasks, hasEdit=false, hasDelete=false, hasMarkD
                             }
                             {hasMarkDone &&
                                 <td>
-                                    <button type="button" class="btn btn-success">
-                                    <svg class="bi"><use xlinkHref="#check-circle"/></svg>
+                                    <button type="button" className="btn btn-success">
+                                    <svg className="bi"><use xlinkHref="#check-circle"/></svg>
                                     </button>
                                 </td>
                             }
