@@ -180,12 +180,13 @@ DONE :
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = WORKING-ON
 14_feature/create-component-for-task-modal-form
 
-TODO :
+WORKING-ON :
 - move the dialog form model of task on a sperate component
 - use it on create task
+- use it on edit task button of datatable (Tasks page)
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
