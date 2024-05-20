@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
-import { fetchData } from '../common/APIController';
+import { fetchData, deleteData } from '../common/APIController';
 
 const Tasks = () => {
 
@@ -27,6 +27,14 @@ const Tasks = () => {
         setTags(tagsData);
     }
 
+
+    async function handleDelete(task_id) {
+        // alert(`Delete the task id ${task_id}`)
+        await deleteData('delete/task/' + task_id);
+
+        //refersh table with new data
+        fetchAndSetData();
+    }
 
     useEffect(() => {
         // this makes error, because setTasks/setTags will store a promise at first before data is complete fetched from api
@@ -87,6 +95,7 @@ const Tasks = () => {
                 tasks={tasks}
                 hasEdit={true}
                 hasDelete={true}
+                handleDelete={handleDelete}
             />}
         </div>
     )
