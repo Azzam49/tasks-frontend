@@ -294,11 +294,13 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
-?_feature/orgnize-the-api-calling
+STATUS = DONE
+25_feature/orgnize-the-api-calling
 
-TODO:
-- Add main config for calling backend url
+DONE:
+- Add common async/await function that takes url and return response data
+    - explain about async/await : https://chatgpt.com/share/4555ad3b-a24a-4963-b8e3-da91d877f299
+- Use the common function for tasks,tags data on Tasks page
 ---------------------------------------------------------------------------
 
 
