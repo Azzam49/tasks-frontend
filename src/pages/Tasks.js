@@ -13,6 +13,9 @@ const Tasks = () => {
 
     const [tasks, setTasks] = useState(null)
 
+    // const [tags, setTags] = useState(["Important", "Common", "Easy"])
+    const [tags, setTags] = useState(null)
+
     useEffect(() => {
         fetch('http://localhost:8000/get/tasks/')
         .then(res => {
@@ -21,9 +24,15 @@ const Tasks = () => {
         .then(data => {
             setTasks(data);
         })
-    }, [])
 
-    const [tags, setTags] = useState(["Important", "Common", "Easy"])
+        fetch('http://localhost:8000/get/tags/')
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            setTags(data);
+        })
+    }, [])
 
     return (
         <div>
@@ -31,12 +40,14 @@ const Tasks = () => {
             <TaskModal
                 modalId="createNewTaskModal"
                 modalTitle="Create New Task"
-                tags={tags}
+                // tags={tags}
+                tags={tags || []}
             />
             <TaskModal
                 modalId="editTaskModal"
                 modalTitle="Edit Task"
-                tags={tags}
+                // tags={tags}
+                tags={tags || []}
             />
 
             <DatatableIcons />
