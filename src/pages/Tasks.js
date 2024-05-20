@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
+import { fetchData } from '../common/APIController';
 
 const Tasks = () => {
 
@@ -16,22 +17,27 @@ const Tasks = () => {
     // const [tags, setTags] = useState(["Important", "Common", "Easy"])
     const [tags, setTags] = useState(null)
 
-    useEffect(() => {
-        fetch('http://localhost:8000/get/tasks/')
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            setTasks(data);
-        })
 
-        fetch('http://localhost:8000/get/tags/')
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            setTags(data);
-        })
+    async function fetchAndSetData() {
+        const tasksData = await fetchData('get/tasks/');
+        const tagsData = await fetchData('get/tags/');
+
+        // console.log(`\ntagsData : ${tagsData}\n`);
+        setTasks(tasksData);
+        setTags(tagsData);
+    }
+
+
+    useEffect(() => {
+        // this makes error, because setTasks/setTags will store a promise at first before data is complete fetched from api
+        // const tasksData = fetchData('/get/tasks/');
+        // const tagsData = fetchData('/get/tags/');
+
+        // console.log(`\ntagsData : ${tagsData}\n`)
+        // setTasks(tasksData);
+        // setTags(tagsData);
+
+        fetchAndSetData();
     }, [])
 
     return (
