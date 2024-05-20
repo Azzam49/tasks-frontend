@@ -1,15 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 
 const Tasks = () => {
 
-    const [tasks, setTasks] = useState([
-        {owner : "John Doe", title: "Complete the HTML coding assesment", tag: "Coding", created_at: "2023-04-25", status: "Completed"},
-        {owner : "John Doe", title: "Complete the CSS coding assesment", tag: "Coding", created_at: "2023-04-21", status: "Completed"},
-        {owner : "John Doe", title: "Complete the JS coding assesment", tag: "Coding", created_at: "2024-05-10", status: "Pending"},
-    ])
+    // const [tasks, setTasks] = useState([
+    //     {owner : "John Doe", title: "Complete the HTML coding assesment", tag: "Coding", created_at: "2023-04-25", status: "Completed"},
+    //     {owner : "John Doe", title: "Complete the CSS coding assesment", tag: "Coding", created_at: "2023-04-21", status: "Completed"},
+    //     {owner : "John Doe", title: "Complete the JS coding assesment", tag: "Coding", created_at: "2024-05-10", status: "Pending"},
+    // ])
+
+    const [tasks, setTasks] = useState(null)
+
+    useEffect(() => {
+        fetch('http://localhost:8000/get/tasks/')
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            setTasks(data);
+        })
+    }, [])
 
     const [tags, setTags] = useState(["Important", "Common", "Easy"])
 
@@ -39,12 +51,26 @@ const Tasks = () => {
                 </div>
             </div>
 
-            <TaskDatatable
+            {/* <TaskDatatable
                 tableId={"tasksTable"}
                 tasks={tasks}
                 hasEdit={true}
                 hasDelete={true}
-            />
+            /> */}
+
+            {/* {tasks !== null ?  <TaskDatatable
+                tableId={"tasksTable"}
+                tasks={tasks}
+                hasEdit={true}
+                hasDelete={true}
+            /> : null} */}
+
+            {tasks &&  <TaskDatatable
+                tableId={"tasksTable"}
+                tasks={tasks}
+                hasEdit={true}
+                hasDelete={true}
+            />}
         </div>
     )
 }

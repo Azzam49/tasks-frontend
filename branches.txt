@@ -264,12 +264,32 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 22_feature/read-task-tags-from-usestate
 
-WORKING-ON :
+DONE :
 - Create useState to store the task tags
 - Use the useState tags on the tags dropdown selection
+---------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+23_feature/using-the-backend-api-to-read-the-tasks
+
+WORKING-ON :
+- Call backend api for reading the tasks
+- Use the tasks from api on Tasks page datatable
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+?_feature/orgnize-the-api-calling
+
+TODO:
+- Add main config for calling backend url
 ---------------------------------------------------------------------------
 
 
@@ -279,6 +299,3 @@ STATUS = FUTURE
 
 https://chat.openai.com/share/a6e9dfaa-e449-4bf3-99d4-0d7db425e96d
 ---------------------------------------------------------------------------
-
-
-TODO : after implement the above branches, then plan the next branches
