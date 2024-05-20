@@ -305,6 +305,15 @@ DONE:
 
 
 ---------------------------------------------------------------------------
+STATUS = WORKING-ON
+26_feature/using-the-backend-api-to-delete-task-on-tasks-page
+
+WORKING-ON:
+- Add common function to delete objects by api
+- Use the function to delete task on Tasks page
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
 STATUS = FUTURE
 ?_feature/add-usestate-control-for-login-fields
 
