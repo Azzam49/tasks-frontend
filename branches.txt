@@ -275,12 +275,21 @@ DONE :
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 23_feature/using-the-backend-api-to-read-the-tasks
 
-WORKING-ON :
+DONE:
 - Call backend api for reading the tasks
 - Use the tasks from api on Tasks page datatable
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = DONE
+24_feature/using-the-backend-api-to-read-the-tags
+
+DONE :
+- Call backend api for reading the tags and using it on Tasks page
 ---------------------------------------------------------------------------
 
 
