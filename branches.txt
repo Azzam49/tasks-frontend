@@ -338,8 +338,18 @@ DONE:
 
 
 ---------------------------------------------------------------------------
+STATUS = WORKING-ON
+29_feature/close-modal-after-creating-task-and-refresh-datatable
+
+WORKING-ON:
+- close the bootstrap modal after submit successfully to create task by api
+- refresh datatable so user live can see his new record addded to the datatable
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
 STATUS = TODO
-29_feature/using-the-backend-put-api-to-update-task
+_feature/using-the-backend-put-api-to-update-task
 
 TODO:
 - use the backend put api to update task on Tasks page
@@ -348,7 +358,7 @@ TODO:
 
 ---------------------------------------------------------------------------
 STATUS = TODO
-30_feature/using-the-backend-change-status-completed-api-on-pending-tasks-page
+_feature/using-the-backend-change-status-completed-api-on-pending-tasks-page
 
 TODO:
 - use the backend change-status-completed api to update task on PendingTasks page
@@ -357,7 +367,7 @@ TODO:
 
 ---------------------------------------------------------------------------
 STATUS = TODO
-31_feature/using-the-backend-delete-task-api-on-completed-tasks-page
+_feature/using-the-backend-delete-task-api-on-completed-tasks-page
 
 TODO:
 - move delete task on common file
