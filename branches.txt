@@ -305,13 +305,65 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 26_feature/using-the-backend-api-to-delete-task-on-tasks-page
 
-WORKING-ON:
+DONE:
 - Add common function to delete objects by api
 - Use the function to delete task on Tasks page
 ---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = DONE
+27_feature/add-notifcation-on-delete-task
+
+DONE:
+- install react-toastify
+    - https://www.npmjs.com/package/react-toastify
+    - npm i react-toastify
+    - https://fkhadra.github.io/react-toastify/introduction/
+- setup the react-toastify on project
+- use it on deleteTask action to notify users
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+28_feature/using-the-backend-post-api-to-create-task
+
+TODO:
+- use the backend post api to create task on Tasks page
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+29_feature/using-the-backend-put-api-to-update-task
+
+TODO:
+- use the backend put api to update task on Tasks page
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+30_feature/using-the-backend-change-status-completed-api-on-pending-tasks-page
+
+TODO:
+- use the backend change-status-completed api to update task on PendingTasks page
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+31_feature/using-the-backend-delete-task-api-on-completed-tasks-page
+
+TODO:
+- move delete task on common file
+- import to reuse it on the completed tasks page
+---------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE

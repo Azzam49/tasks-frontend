@@ -3,6 +3,7 @@ import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 import { fetchData, deleteData } from '../common/APIController';
+import { notifySuccess } from '../common/Common';
 
 const Tasks = () => {
 
@@ -34,6 +35,9 @@ const Tasks = () => {
 
         //refersh table with new data
         fetchAndSetData();
+
+        //send notifcation
+        notifySuccess('User was deleted successfully!')
     }
 
     useEffect(() => {
