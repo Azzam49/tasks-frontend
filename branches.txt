@@ -329,10 +329,10 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 28_feature/using-the-backend-post-api-to-create-task
 
-TODO:
+DONE:
 - use the backend post api to create task on Tasks page
 ---------------------------------------------------------------------------
 
