@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
-import { postData } from '../common/APIController';
-import { notifySuccess } from '../common/Common';
 
-const TaskModal = ({modalId, modalTitle, tags}) => {
+const TaskModal = ({modalId, modalTitle, tags, handleCreateTask}) => {
 
     const [taskTitle, setTaskTitle] = useState(null)
     const [taskDescription, setTaskDescription] = useState(null)
     const [taskTag, setTaskTag] = useState(null)
 
-    async function handleCreate() {
-
-        const apiURL = 'post/task/';
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
         const dataObject = {
             owner_id: 1, //todo : change this
@@ -19,19 +16,15 @@ const TaskModal = ({modalId, modalTitle, tags}) => {
             tag_id: 1, //todo : change this
         }
 
-        await postData(apiURL, dataObject);
+        handleCreateTask(dataObject);
 
-        //send notifcation
-        notifySuccess('User was created successfully!')
+        //empty fields
+        setTaskTitle("");
+        setTaskDescription("");
+        setTaskTag("");
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        handleCreate();
-    }
-
-    console.log(`\n\ntitle: ${taskTitle}\ndescription: ${taskDescription}\ntag: ${taskTag}\n\n`)
+    // console.log(`\n\ntitle: ${taskTitle}\ndescription: ${taskDescription}\ntag: ${taskTag}\n\n`)
 
     return (
         <div className="modal fade" id={modalId} data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -84,7 +77,7 @@ const TaskModal = ({modalId, modalTitle, tags}) => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
+                        <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" onClick={(e) => handleSubmit(e)}>Submit</button>
                     </div>
                     </form>
                 </div>

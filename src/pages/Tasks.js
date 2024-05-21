@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
-import { fetchData, deleteData } from '../common/APIController';
+import { fetchData, deleteData, postData } from '../common/APIController';
 import { notifySuccess } from '../common/Common';
 
 const Tasks = () => {
@@ -27,6 +27,20 @@ const Tasks = () => {
         setTasks(tasksData);
         setTags(tagsData);
     }
+
+    async function handleCreateTask(dataObject) {
+
+        const apiURL = 'post/task/';
+
+        await postData(apiURL, dataObject);
+
+        //send notifcation
+        notifySuccess('User was created successfully!')
+
+        //refresh datatable
+        fetchAndSetData();
+    }
+
 
 
     async function handleDelete(task_id) {
@@ -60,6 +74,7 @@ const Tasks = () => {
                 modalTitle="Create New Task"
                 // tags={tags}
                 tags={tags || []}
+                handleCreateTask={handleCreateTask}
             />
             <TaskModal
                 modalId="editTaskModal"
