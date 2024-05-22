@@ -401,20 +401,20 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 34_feature/function-login-page-to-send-token-request
 
-WORKING-ON:
+DONE:
 - setup user login context to control between login and dashboard pages
 - login page to use username & password fields for sending api request to fetch the token
 ---------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = WORKING-ON
 35_feature/add-validation-and-notification-on-login-page
 
-TODO:
+WORKING-ON:
 - validate username and password must have value
 - setup notify alert to be avilable for login page
 - send warning notify if username/password are missing value

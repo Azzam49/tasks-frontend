@@ -11,13 +11,13 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <>
+        <ToastContainer
+          position="bottom-center"
+        />
         <UserLoginProvider>
           <Router>
             <div className="container-fluid">
               <div className="row">
-                <ToastContainer
-                  position="bottom-center"
-                />
                 <Header/>
                 <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                   <Routes>
