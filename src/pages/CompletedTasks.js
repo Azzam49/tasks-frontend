@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 import { fetchData, deleteData } from '../common/APIController';
 import { notifySuccess } from '../common/Common';
+import { UserLoginContext } from '../context/UserLoginProvider';
 
 const CompletedTasks = () => {
+
+    const { token } = useContext(UserLoginContext);
 
     const [tasks, setTasks] = useState(null)
 
     async function fetchAndSetData() {
-        const tasksData = await fetchData('get/completed-tasks/');
+        const tasksData = await fetchData('get/completed-tasks/', token);
 
         setTasks(tasksData);
     }
@@ -20,7 +23,7 @@ const CompletedTasks = () => {
 
     async function handleDelete(task_id) {
         // alert(`Delete the task id ${task_id}`)
-        await deleteData('delete/task/' + task_id);
+        await deleteData('delete/task/' + task_id, token);
 
         //refersh table with new data
         fetchAndSetData();

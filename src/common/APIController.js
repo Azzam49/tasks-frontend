@@ -1,6 +1,10 @@
-export async function fetchData(apiURL) {
+export async function fetchData(apiURL, token) {
     try {
-        const response = await fetch('http://localhost:8000/' + apiURL);
+        const response = await fetch('http://localhost:8000/' + apiURL, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
         const data = await response.json();
         // console.log("\n\nDataaaaa:", data)
         return data;
@@ -9,22 +13,26 @@ export async function fetchData(apiURL) {
     }
 }
 
-export async function deleteData(apiURL) {
+export async function deleteData(apiURL, token) {
     try {
         await fetch('http://localhost:8000/' + apiURL, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         });
     } catch (error) {
         console.error(`Error deleting ${apiURL}:`, error);
     }
 }
 
-export async function postPutData(method, apiURL, dataObject) {
+export async function postPutData(method, apiURL, dataObject, token) {
     try {
         const response = await fetch('http://localhost:8000/' + apiURL, {
             method: method,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(dataObject)
         });

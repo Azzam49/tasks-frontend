@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 import { fetchData, deleteData, postPutData } from '../common/APIController';
 import { notifySuccess } from '../common/Common';
+import { UserLoginContext } from '../context/UserLoginProvider';
 
 const Tasks = () => {
+
+    const { token } = useContext(UserLoginContext);
+
+    console.log(`\n\n\nTasks Page, token : ${token}\n\n\n`)
 
     // const [tasks, setTasks] = useState([
     //     {owner : "John Doe", title: "Complete the HTML coding assesment", tag: "Coding", created_at: "2023-04-25", status: "Completed"},
@@ -24,8 +29,8 @@ const Tasks = () => {
 
 
     async function fetchAndSetData() {
-        const tasksData = await fetchData('get/tasks/');
-        const tagsData = await fetchData('get/tags/');
+        const tasksData = await fetchData('get/tasks/', token);
+        const tagsData = await fetchData('get/tags/', token);
 
         // console.log(`\ntagsData : ${tagsData}\n`);
         setTasks(tasksData);
@@ -36,7 +41,7 @@ const Tasks = () => {
 
         const apiURL = 'post/task/';
 
-        await postPutData('POST', apiURL, dataObject);
+        await postPutData('POST', apiURL, dataObject, token);
 
         //send notifcation
         notifySuccess('Task was created successfully!')
@@ -49,7 +54,7 @@ const Tasks = () => {
 
         const apiURL = `put/task/${dataObject.id}/`;
 
-        await postPutData('PUT', apiURL, dataObject);
+        await postPutData('PUT', apiURL, dataObject, token);
 
         //send notifcation
         notifySuccess('Task was updated successfully!')
@@ -67,7 +72,7 @@ const Tasks = () => {
 
     async function handleDelete(task_id) {
         // alert(`Delete the task id ${task_id}`)
-        await deleteData('delete/task/' + task_id);
+        await deleteData('delete/task/' + task_id, token);
 
         //refersh table with new data
         fetchAndSetData();
