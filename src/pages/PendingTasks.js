@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 import { fetchData, postPutData } from '../common/APIController';
 import { notifySuccess } from '../common/Common';
+import { UserLoginContext } from '../context/UserLoginProvider';
 
 const PendingTasks = () => {
+
+    const { token } = useContext(UserLoginContext);
 
     // const [tasks, setTasks] = useState([
     //     {owner : "John Doe", title: "Complete the JS coding assesment", tag: "Coding", created_at: "2024-05-10", status: "Pending"},
@@ -12,7 +15,7 @@ const PendingTasks = () => {
     const [tasks, setTasks] = useState(null)
 
     async function fetchAndSetData() {
-        const tasksData = await fetchData('get/pending-tasks/');
+        const tasksData = await fetchData('get/pending-tasks/', token);
 
         setTasks(tasksData);
     }
@@ -26,7 +29,7 @@ const PendingTasks = () => {
 
         const apiURL = `put/task-to-completed/${task_id}/`;
 
-        await postPutData('PUT', apiURL);
+        await postPutData('PUT', apiURL, null, token);
 
         //send notifcation
         notifySuccess('Task was updated successfully!')

@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { fetchData } from '../common/APIController';
+import { UserLoginContext } from '../context/UserLoginProvider';
 
 const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, handleUpdateTask, currentTaskId}) => {
+
+    const { token } = useContext(UserLoginContext);
 
     const [taskTitle, setTaskTitle] = useState(null)
     const [taskDescription, setTaskDescription] = useState(null)
@@ -39,7 +42,7 @@ const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, hand
 
 
     async function fetchAndSetData() {
-        const taskData = await fetchData(`get/task/${currentTaskId}/`);
+        const taskData = await fetchData(`get/task/${currentTaskId}/`, token);
         // console.log(`\n\ntaskData: ${taskData}\n\n`)
 
         setTaskTitle(taskData.title);
