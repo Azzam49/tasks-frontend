@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
-import { fetchData, deleteData, postData } from '../common/APIController';
+import { fetchData, deleteData, postPutData } from '../common/APIController';
 import { notifySuccess } from '../common/Common';
 
 const Tasks = () => {
@@ -18,6 +18,10 @@ const Tasks = () => {
     // const [tags, setTags] = useState(["Important", "Common", "Easy"])
     const [tags, setTags] = useState(null)
 
+    const [currentTaskId, setCurrentTaskId] = useState(null)
+    //console.log(`\n\ncurrentTaskId: ${currentTaskId}\n\n`)
+
+
 
     async function fetchAndSetData() {
         const tasksData = await fetchData('get/tasks/');
@@ -32,10 +36,23 @@ const Tasks = () => {
 
         const apiURL = 'post/task/';
 
-        await postData(apiURL, dataObject);
+        await postPutData('POST', apiURL, dataObject);
 
         //send notifcation
-        notifySuccess('User was created successfully!')
+        notifySuccess('Task was created successfully!')
+
+        //refresh datatable
+        fetchAndSetData();
+    }
+
+    async function handleUpdateTask(dataObject) {
+
+        const apiURL = `put/task/${dataObject.id}/`;
+
+        await postPutData('PUT', apiURL, dataObject);
+
+        //send notifcation
+        notifySuccess('Task was updated successfully!')
 
         //refresh datatable
         fetchAndSetData();
@@ -51,7 +68,7 @@ const Tasks = () => {
         fetchAndSetData();
 
         //send notifcation
-        notifySuccess('User was deleted successfully!')
+        notifySuccess('Task was deleted successfully!')
     }
 
     useEffect(() => {
@@ -75,12 +92,16 @@ const Tasks = () => {
                 // tags={tags}
                 tags={tags || []}
                 handleCreateTask={handleCreateTask}
+                modalType={"create"}
             />
             <TaskModal
                 modalId="editTaskModal"
                 modalTitle="Edit Task"
                 // tags={tags}
                 tags={tags || []}
+                handleUpdateTask={handleUpdateTask}
+                modalType={"update"}
+                currentTaskId={currentTaskId}
             />
 
             <DatatableIcons />
@@ -115,6 +136,7 @@ const Tasks = () => {
                 hasEdit={true}
                 hasDelete={true}
                 handleDelete={handleDelete}
+                setCurrentTaskId={setCurrentTaskId}
             />}
         </div>
     )

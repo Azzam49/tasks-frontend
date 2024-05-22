@@ -11,20 +11,18 @@ export async function fetchData(apiURL) {
 
 export async function deleteData(apiURL) {
     try {
-        const response = await fetch('http://localhost:8000/' + apiURL, {
+        await fetch('http://localhost:8000/' + apiURL, {
             method: 'DELETE'
         });
-        const data = await response.json();
-        return data;
     } catch (error) {
         console.error(`Error deleting ${apiURL}:`, error);
     }
 }
 
-export async function postData(apiURL, dataObject) {
+export async function postPutData(method, apiURL, dataObject) {
     try {
         const response = await fetch('http://localhost:8000/' + apiURL, {
-            method: 'POST',
+            method: method,
             headers: {
                 'Content-Type': 'application/json'
             },

@@ -311,6 +311,17 @@ STATUS = DONE
 DONE:
 - Add common function to delete objects by api
 - Use the function to delete task on Tasks page
+
+Correction :
+    export async function deleteData(apiURL) {
+        try {
+            await fetch('http://localhost:8000/' + apiURL, {
+                method: 'DELETE'
+            });
+        } catch (error) {
+            console.error(`Error deleting ${apiURL}:`, error);
+        }
+    }
 ---------------------------------------------------------------------------
 
 
@@ -325,6 +336,10 @@ DONE:
     - https://fkhadra.github.io/react-toastify/introduction/
 - setup the react-toastify on project
 - use it on deleteTask action to notify users
+
+Correction:
+    notifySuccess('Task was updated successfully!')
+    and not 'User was...'
 ---------------------------------------------------------------------------
 
 
@@ -338,20 +353,20 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 29_feature/close-modal-after-creating-task-and-refresh-datatable
 
-WORKING-ON:
+DONE:
 - close the bootstrap modal after submit successfully to create task by api
 - refresh datatable so user live can see his new record addded to the datatable
 ---------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
-_feature/using-the-backend-put-api-to-update-task
+STATUS = WORKING-ON
+30_feature/using-the-backend-put-api-to-update-task
 
-TODO:
+WORKING-ON:
 - use the backend put api to update task on Tasks page
 ---------------------------------------------------------------------------
 
@@ -374,6 +389,14 @@ TODO:
 - import to reuse it on the completed tasks page
 ---------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------
+STATUS = FUTURE
+?_feature/add-notify-error-message-if-api-hits-error
+
+eg.:
+    - on create task if description field is empty api will return error
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE
