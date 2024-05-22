@@ -3,7 +3,7 @@ import $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs5';
 
-const TaskDatatable = ({tableId, tasks, hasEdit=false, hasDelete=false, hasMarkDone=false, handleDelete}) => {
+const TaskDatatable = ({tableId, tasks, hasEdit=false, hasDelete=false, hasMarkDone=false, handleDelete, setCurrentTaskId}) => {
 
     useEffect(() => {
         // Initialize DataTable after the component is mounted
@@ -45,7 +45,7 @@ const TaskDatatable = ({tableId, tasks, hasEdit=false, hasDelete=false, hasMarkD
                             </td>
                             {hasEdit &&
                                 <td>
-                                    <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                                    <button onClick={() => setCurrentTaskId(task.id)} type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTaskModal">
                                         <svg className="bi"><use xlinkHref="#pencil-square"/></svg>
                                     </button>
                                 </td>

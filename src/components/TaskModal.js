@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { fetchData } from '../common/APIController';
 
-const TaskModal = ({modalId, modalTitle, tags, handleCreateTask}) => {
+const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, handleUpdateTask, currentTaskId}) => {
 
     const [taskTitle, setTaskTitle] = useState(null)
     const [taskDescription, setTaskDescription] = useState(null)
     const [taskTag, setTaskTag] = useState(null)
+
+    const clearData = () => {
+         //empty fields
+         setTaskTitle("");
+         setTaskDescription("");
+         setTaskTag("");
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,15 +24,35 @@ const TaskModal = ({modalId, modalTitle, tags, handleCreateTask}) => {
             tag_id: 1, //todo : change this
         }
 
-        handleCreateTask(dataObject);
+        if(modalType == "create"){
+            handleCreateTask(dataObject);
+        }
+        if(modalType == "update"){
+            dataObject.id = currentTaskId;
+            handleUpdateTask(dataObject);
+        }
 
-        //empty fields
-        setTaskTitle("");
-        setTaskDescription("");
-        setTaskTag("");
+       clearData();
     }
 
     // console.log(`\n\ntitle: ${taskTitle}\ndescription: ${taskDescription}\ntag: ${taskTag}\n\n`)
+
+
+    async function fetchAndSetData() {
+        const taskData = await fetchData(`get/task/${currentTaskId}/`);
+        // console.log(`\n\ntaskData: ${taskData}\n\n`)
+
+        setTaskTitle(taskData.title);
+        setTaskDescription(taskData.description);
+        setTaskTag(taskData.tag);
+    }
+
+    useEffect(() => {
+        // console.log(`\n\nmodalType: ${modalType}\ncurrentTaskId: ${currentTaskId}\n\n`)
+        if(modalType == 'update' && currentTaskId){
+            fetchAndSetData();
+        }
+    }, [currentTaskId])
 
     return (
         <div className="modal fade" id={modalId} data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -76,7 +104,7 @@ const TaskModal = ({modalId, modalTitle, tags, handleCreateTask}) => {
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => clearData()}>Close</button>
                         <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" onClick={(e) => handleSubmit(e)}>Submit</button>
                     </div>
                     </form>
