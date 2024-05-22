@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import logo from '../assets/images/bootstrap-logo.svg';
 import { postPutData } from '../common/APIController';
 import { UserLoginContext } from '../context/UserLoginProvider';
+import { notifySuccess, notifyWarning, notifyError } from '../common/Common';
 
 const Login = () => {
 
@@ -15,14 +16,29 @@ const Login = () => {
         const apiURL = `token/`;
 
         const result = await postPutData('POST', apiURL, userObject);
+
+        if(!result){
+            notifyError('Incorrect username or password!')
+            return
+        }
+
         const token = result.access;
         // alert(`token : ${result.access}`)
 
         setUserLoginChange(token);
+
+        notifySuccess('Login is Successfull!')
     }
 
     const handleLoginSubmit = (event) => {
         event.preventDefault();
+
+        if (!username || !password) {
+            // alert('Both username and password are required');
+            notifyWarning('Both username and password are required!')
+            return
+        }
+
         fetchandSetToken({"username": username, "password": password});
     }
 
