@@ -382,14 +382,22 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 32_feature/adding-apis-for-completed-tasks-page
 
-WORKING-ON:
+DONE:
 - use api to populate datatable with completed tasks data
 - use the backend api to delete task on completed tasks page
 ---------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+33_bugfix/fix-updating-same-task-on-tasks-page
+
+WORKING-ON:
+- if updating same task on tasks page to display it on modal, on second time the task values won't show on the modal fields
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE
