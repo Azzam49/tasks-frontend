@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import logo from '../assets/images/bootstrap-logo.svg';
-import { useNavigate } from 'react-router-dom';
+import { postPutData } from '../common/APIController';
+import { UserLoginContext } from '../context/UserLoginProvider';
 
 const Login = () => {
-    const navigate = useNavigate();
+
+    const { setUserLoginChange } = useContext(UserLoginContext);
+
+    const [username, setUsername] = useState(null)
+    const [password, setPassword] = useState(null)
+
+    async function fetchandSetToken(userObject) {
+
+        const apiURL = `token/`;
+
+        const result = await postPutData('POST', apiURL, userObject);
+        const token = result.access;
+        // alert(`token : ${result.access}`)
+
+        setUserLoginChange(token);
+    }
 
     const handleLoginSubmit = (event) => {
         event.preventDefault();
-        navigate("/");
+        fetchandSetToken({"username": username, "password": password});
     }
 
     return (
@@ -18,12 +34,24 @@ const Login = () => {
             <h1 className="h3 mb-3 fw-normal">Please login</h1>
 
             <div className="form-floating">
-                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
-                <label for="floatingInput">Email address</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="floatingInput"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <label htmlFor="floatingInput">Username</label>
             </div>
             <div className="form-floating">
-                <input type="password" className="form-control" id="floatingPassword" placeholder="Password"/>
-                <label for="floatingPassword">Password</label>
+                <input
+                    type="password"
+                    className="form-control"
+                    id="floatingPassword"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <label htmlFor="floatingPassword">Password</label>
             </div>
 
             <div className="border-top pt-3 mb-3">

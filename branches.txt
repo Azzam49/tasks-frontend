@@ -392,12 +392,44 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 33_bugfix/fix-updating-same-task-on-tasks-page
 
-WORKING-ON:
+DONE:
 - if updating same task on tasks page to display it on modal, on second time the task values won't show on the modal fields
 ---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+34_feature/function-login-page-to-send-token-request
+
+WORKING-ON:
+- setup user login context to control between login and dashboard pages
+- login page to use username & password fields for sending api request to fetch the token
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+35_feature/add-validation-and-notification-on-login-page
+
+TODO:
+- validate username and password must have value
+- setup notify alert to be avilable for login page
+- send warning notify if username/password are missing value
+- send notify if api call not success eg.(wrong password, server not up)
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+36_feature/use-token-on-all-api-requests
+
+TODO:
+- make all api requests to use the token
+---------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE
