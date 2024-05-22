@@ -56,6 +56,11 @@ const Tasks = () => {
 
         //refresh datatable
         fetchAndSetData();
+
+        //reset task id
+        //so on next selection of task to edit if it was same task,
+            //then useEffect of modal can still fetch and populate fields
+        setCurrentTaskId(null)
     }
 
 
