@@ -363,19 +363,20 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 30_feature/using-the-backend-put-api-to-update-task
 
-WORKING-ON:
+DONE:
 - use the backend put api to update task on Tasks page
 ---------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
-_feature/using-the-backend-change-status-completed-api-on-pending-tasks-page
+STATUS = WORKING-ON
+31_feature/adding-apis-for-pending-tasks-page
 
-TODO:
+WORKING-ON:
+- use api to populate datatable with pending tasks data
 - use the backend change-status-completed api to update task on PendingTasks page
 ---------------------------------------------------------------------------
 
