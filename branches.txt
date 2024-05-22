@@ -372,22 +372,32 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 31_feature/adding-apis-for-pending-tasks-page
 
-WORKING-ON:
+DONE:
 - use api to populate datatable with pending tasks data
 - use the backend change-status-completed api to update task on PendingTasks page
 ---------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
-_feature/using-the-backend-delete-task-api-on-completed-tasks-page
+STATUS = WORKING-ON
+32_feature/adding-apis-for-completed-tasks-page
+
+WORKING-ON:
+- use api to populate datatable with completed tasks data
+- use the backend api to delete task on completed tasks page
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = FUTURE
+?_feature/orgnize-the-code
 
 TODO:
-- move delete task on common file
-- import to reuse it on the completed tasks page
+- move re-used functions on common files
+- todo : review and check things to orgnize the code
 ---------------------------------------------------------------------------
 
 

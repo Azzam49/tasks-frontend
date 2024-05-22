@@ -1,13 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
+import { fetchData, deleteData } from '../common/APIController';
+import { notifySuccess } from '../common/Common';
 
 const CompletedTasks = () => {
 
-    const [tasks, setTasks] = useState([
-        {owner : "John Doe", title: "Complete the HTML coding assesment", tag: "Coding", created_at: "2023-04-25", status: "Completed"},
-        {owner : "John Doe", title: "Complete the CSS coding assesment", tag: "Coding", created_at: "2023-04-21", status: "Completed"},
-    ])
+    const [tasks, setTasks] = useState(null)
+
+    async function fetchAndSetData() {
+        const tasksData = await fetchData('get/completed-tasks/');
+
+        setTasks(tasksData);
+    }
+
+    useEffect(() => {
+        fetchAndSetData();
+    }, [])
+
+    async function handleDelete(task_id) {
+        // alert(`Delete the task id ${task_id}`)
+        await deleteData('delete/task/' + task_id);
+
+        //refersh table with new data
+        fetchAndSetData();
+
+        //send notifcation
+        notifySuccess('Task was deleted successfully!')
+    }
 
     return (
         <>
@@ -18,13 +38,14 @@ const CompletedTasks = () => {
                 <h1 className="h2">Completed Tasks</h1>
             </div>
 
-            <TaskDatatable
+            {tasks && <TaskDatatable
                 tableId={"completedTasksTable"}
                 tasks={tasks}
                 hasEdit={false}
                 hasDelete={true}
+                handleDelete={handleDelete}
                 hasMarkDone={false}
-            />
+            />}
         </>
     )
 }
