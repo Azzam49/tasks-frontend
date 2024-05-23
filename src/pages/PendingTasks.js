@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 import { fetchData, postPutData } from '../common/APIController';
-import { notifySuccess } from '../common/Common';
+// import { notifySuccess } from '../common/Common';
 import { UserLoginContext } from '../context/UserLoginProvider';
 
 const PendingTasks = () => {
@@ -32,7 +32,7 @@ const PendingTasks = () => {
         await postPutData('PUT', apiURL, null, token, setUserLoginChange);
 
         //send notifcation
-        notifySuccess('Task was updated successfully!')
+        // notifySuccess('Task was updated successfully!')
 
         //refresh datatable
         fetchAndSetData();

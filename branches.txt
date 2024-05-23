@@ -432,15 +432,24 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 37_feature/function-the-logout-button-and-redirect-to-login-page-if-api-is-unautherized
 
-WORKING-ON:
+DONE:
 - DONE: make logout button to remove token and redirect to login page
 - DONE: make any api request and return response code as (401 or 403) to remove token and redirect to login page
-- WORKING-ON: test all those functions and all the tasks app to make sure everything works as expected
+- DONE: test all those functions and all the tasks app to make sure everything works as expected
 ---------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+38_feature/fix-notifcation-and-standardlize-them-from-api-controller
+
+WORKING-ON:
+- currently if create task with fields empty, it will hit error and notify as success, so this need fix by:
+    - controlling all notifcations from api controller, to control weather to send success/error notfication bases on api response
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE

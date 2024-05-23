@@ -15,10 +15,15 @@ const Login = () => {
 
         const apiURL = `token/`;
 
-        const result = await postPutData('POST', apiURL, userObject);
+        let customMsg = {
+            "success": "Login is Successfull!",
+            "error": "Error on login, try again."
+        }
+
+        const result = await postPutData('POST', apiURL, userObject, null, null, customMsg);
 
         if(!result){
-            notifyError('Incorrect username or password!')
+            // notifyError('Incorrect username or password!')
             return
         }
 
@@ -27,7 +32,7 @@ const Login = () => {
 
         setUserLoginChange(token);
 
-        notifySuccess('Login is Successfull!')
+        // notifySuccess('Login is Successfull!')
     }
 
     const handleLoginSubmit = (event) => {
