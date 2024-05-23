@@ -7,12 +7,12 @@ import { UserLoginContext } from '../context/UserLoginProvider';
 
 const CompletedTasks = () => {
 
-    const { token } = useContext(UserLoginContext);
+    const { token, setUserLoginChange } = useContext(UserLoginContext);
 
     const [tasks, setTasks] = useState(null)
 
     async function fetchAndSetData() {
-        const tasksData = await fetchData('get/completed-tasks/', token);
+        const tasksData = await fetchData('get/completed-tasks/', token, setUserLoginChange);
 
         setTasks(tasksData);
     }
@@ -23,7 +23,7 @@ const CompletedTasks = () => {
 
     async function handleDelete(task_id) {
         // alert(`Delete the task id ${task_id}`)
-        await deleteData('delete/task/' + task_id, token);
+        await deleteData('delete/task/' + task_id, token, setUserLoginChange);
 
         //refersh table with new data
         fetchAndSetData();

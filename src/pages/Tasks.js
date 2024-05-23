@@ -8,7 +8,7 @@ import { UserLoginContext } from '../context/UserLoginProvider';
 
 const Tasks = () => {
 
-    const { token } = useContext(UserLoginContext);
+    const { token, setUserLoginChange } = useContext(UserLoginContext);
 
     console.log(`\n\n\nTasks Page, token : ${token}\n\n\n`)
 
@@ -29,8 +29,8 @@ const Tasks = () => {
 
 
     async function fetchAndSetData() {
-        const tasksData = await fetchData('get/tasks/', token);
-        const tagsData = await fetchData('get/tags/', token);
+        const tasksData = await fetchData('get/tasks/', token, setUserLoginChange);
+        const tagsData = await fetchData('get/tags/', token, setUserLoginChange);
 
         // console.log(`\ntagsData : ${tagsData}\n`);
         setTasks(tasksData);
@@ -41,7 +41,7 @@ const Tasks = () => {
 
         const apiURL = 'post/task/';
 
-        await postPutData('POST', apiURL, dataObject, token);
+        await postPutData('POST', apiURL, dataObject, token, setUserLoginChange);
 
         //send notifcation
         notifySuccess('Task was created successfully!')
@@ -54,7 +54,7 @@ const Tasks = () => {
 
         const apiURL = `put/task/${dataObject.id}/`;
 
-        await postPutData('PUT', apiURL, dataObject, token);
+        await postPutData('PUT', apiURL, dataObject, token, setUserLoginChange);
 
         //send notifcation
         notifySuccess('Task was updated successfully!')
@@ -72,7 +72,7 @@ const Tasks = () => {
 
     async function handleDelete(task_id) {
         // alert(`Delete the task id ${task_id}`)
-        await deleteData('delete/task/' + task_id, token);
+        await deleteData('delete/task/' + task_id, token, setUserLoginChange);
 
         //refersh table with new data
         fetchAndSetData();

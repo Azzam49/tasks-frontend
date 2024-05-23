@@ -1,7 +1,21 @@
-import React from 'react'
-import { NavLink } from "react-router-dom";
+import React, { useContext } from 'react'
+import { Form, NavLink } from "react-router-dom";
+import { UserLoginContext } from '../context/UserLoginProvider';
 
 const Header = () => {
+
+    const { setUserLoginChange } = useContext(UserLoginContext);
+
+    const handleLogout = () => {
+
+        // alert("clicked logout")
+        setUserLoginChange("")
+
+        // reset the token by setUserLoginChange already enough to go to login page
+        // window.location.href is just to change the browser's url
+        window.location.href = "/";
+    }
+
     return (
     <>
         <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
@@ -95,7 +109,11 @@ const Header = () => {
 
                             <ul className="nav flex-column mb-auto">
                                 <li className="nav-item">
-                                <a className="nav-link d-flex align-items-center gap-2" href="login.html">
+                                <a
+                                    className="nav-link d-flex align-items-center gap-2"
+                                    onClick={handleLogout}
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     <svg className="bi"><use xlinkHref="#door-closed"/></svg>
                                     Logout
                                 </a>

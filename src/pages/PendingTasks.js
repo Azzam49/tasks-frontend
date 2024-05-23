@@ -7,7 +7,7 @@ import { UserLoginContext } from '../context/UserLoginProvider';
 
 const PendingTasks = () => {
 
-    const { token } = useContext(UserLoginContext);
+    const { token, setUserLoginChange } = useContext(UserLoginContext);
 
     // const [tasks, setTasks] = useState([
     //     {owner : "John Doe", title: "Complete the JS coding assesment", tag: "Coding", created_at: "2024-05-10", status: "Pending"},
@@ -15,7 +15,7 @@ const PendingTasks = () => {
     const [tasks, setTasks] = useState(null)
 
     async function fetchAndSetData() {
-        const tasksData = await fetchData('get/pending-tasks/', token);
+        const tasksData = await fetchData('get/pending-tasks/', token, setUserLoginChange);
 
         setTasks(tasksData);
     }
@@ -29,7 +29,7 @@ const PendingTasks = () => {
 
         const apiURL = `put/task-to-completed/${task_id}/`;
 
-        await postPutData('PUT', apiURL, null, token);
+        await postPutData('PUT', apiURL, null, token, setUserLoginChange);
 
         //send notifcation
         notifySuccess('Task was updated successfully!')

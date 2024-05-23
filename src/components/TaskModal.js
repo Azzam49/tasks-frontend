@@ -4,7 +4,7 @@ import { UserLoginContext } from '../context/UserLoginProvider';
 
 const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, handleUpdateTask, currentTaskId}) => {
 
-    const { token } = useContext(UserLoginContext);
+    const { token, setUserLoginChange } = useContext(UserLoginContext);
 
     const [taskTitle, setTaskTitle] = useState(null)
     const [taskDescription, setTaskDescription] = useState(null)
@@ -42,7 +42,7 @@ const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, hand
 
 
     async function fetchAndSetData() {
-        const taskData = await fetchData(`get/task/${currentTaskId}/`, token);
+        const taskData = await fetchData(`get/task/${currentTaskId}/`, token, setUserLoginChange);
         // console.log(`\n\ntaskData: ${taskData}\n\n`)
 
         setTaskTitle(taskData.title);

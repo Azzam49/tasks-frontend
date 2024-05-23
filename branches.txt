@@ -423,11 +423,22 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 36_feature/use-token-on-all-api-requests
 
-WORKING-ON:
+DONE:
 - make all api requests to use the token
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+37_feature/function-the-logout-button-and-redirect-to-login-page-if-api-is-unautherized
+
+WORKING-ON:
+- DONE: make logout button to remove token and redirect to login page
+- DONE: make any api request and return response code as (401 or 403) to remove token and redirect to login page
+- WORKING-ON: test all those functions and all the tasks app to make sure everything works as expected
 ---------------------------------------------------------------------------
 
 
