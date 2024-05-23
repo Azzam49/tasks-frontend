@@ -1,3 +1,5 @@
+import { notifySuccess, notifyError } from '../common/Common';
+
 export async function fetchData(apiURL, token, setUserLoginChange) {
     try {
         const response = await fetch('http://localhost:8000/' + apiURL, {
@@ -22,6 +24,7 @@ export async function fetchData(apiURL, token, setUserLoginChange) {
         return data;
     } catch (error) {
         console.error(`Error fetching ${apiURL}:`, error);
+        notifyError('Error on loadig the data from server.')
     }
 }
 
@@ -45,12 +48,30 @@ export async function deleteData(apiURL, token, setUserLoginChange) {
             return
         }
 
+        notifySuccess('Task deleted successfully!')
     } catch (error) {
         console.error(`Error deleting ${apiURL}:`, error);
+        notifyError('Error on deleting the task.')
     }
 }
 
-export async function postPutData(method, apiURL, dataObject, token, setUserLoginChange) {
+export async function postPutData(method, apiURL, dataObject, token, setUserLoginChange, customMsg) {
+
+    // const action = method == 'POST' ? 'create' : 'update';
+    // let errorMsg = '';
+    // let successMsg = '';
+    // if(customMsg){
+    //     errorMsg = customMsg?.error;
+    //     successMsg = customMsg?.success
+    // }else{
+    //     errorMsg = `Error on ${action} the task.`;
+    //     successMsg = `Task ${action} was successfull!`;
+    // }
+
+    const action = method === 'POST' ? 'create' : 'update';
+    let errorMsg = customMsg?.error || `Error on ${action} the task.`;
+    let successMsg = customMsg?.success || `Task ${action} was successful!`;
+
     try {
         const response = await fetch('http://localhost:8000/' + apiURL, {
             method: method,
@@ -73,13 +94,17 @@ export async function postPutData(method, apiURL, dataObject, token, setUserLogi
         }
 
         if (!response.ok) {
-            console.error(`Error posting task: ${response.statusText}`);
+            console.error(`Error on post ${apiURL}: ${response.statusText}`);
+            notifyError(errorMsg)
             return
         }
+
+        notifySuccess(successMsg)
 
         const data = await response.json();
         return data;
     } catch (error) {
-        console.error(`Error posting task to ${apiURL}:`, error);
+        console.error(`Error on post ${apiURL}:`, error);
+        notifyError(errorMsg)
     }
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 import { fetchData, deleteData } from '../common/APIController';
-import { notifySuccess } from '../common/Common';
+// import { notifySuccess } from '../common/Common';
 import { UserLoginContext } from '../context/UserLoginProvider';
 
 const CompletedTasks = () => {
@@ -29,7 +29,7 @@ const CompletedTasks = () => {
         fetchAndSetData();
 
         //send notifcation
-        notifySuccess('Task was deleted successfully!')
+        // notifySuccess('Task was deleted successfully!')
     }
 
     return (

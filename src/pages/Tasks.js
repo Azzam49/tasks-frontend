@@ -3,7 +3,7 @@ import TaskModal from '../components/TaskModal';
 import TaskDatatable from '../components/TaskDatatable';
 import DatatableIcons from '../components/DatatableIcons';
 import { fetchData, deleteData, postPutData } from '../common/APIController';
-import { notifySuccess } from '../common/Common';
+// import { notifySuccess, notifyError } from '../common/Common';
 import { UserLoginContext } from '../context/UserLoginProvider';
 
 const Tasks = () => {
@@ -43,9 +43,6 @@ const Tasks = () => {
 
         await postPutData('POST', apiURL, dataObject, token, setUserLoginChange);
 
-        //send notifcation
-        notifySuccess('Task was created successfully!')
-
         //refresh datatable
         fetchAndSetData();
     }
@@ -57,7 +54,7 @@ const Tasks = () => {
         await postPutData('PUT', apiURL, dataObject, token, setUserLoginChange);
 
         //send notifcation
-        notifySuccess('Task was updated successfully!')
+        // notifySuccess('Task was updated successfully!')
 
         //refresh datatable
         fetchAndSetData();
@@ -78,7 +75,7 @@ const Tasks = () => {
         fetchAndSetData();
 
         //send notifcation
-        notifySuccess('Task was deleted successfully!')
+        // notifySuccess('Task was deleted successfully!')
     }
 
     useEffect(() => {
