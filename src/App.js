@@ -25,7 +25,7 @@ function App() {
                     <Route exact path="/tasks" element={<Tasks />}/>
                     <Route exact path="/completed-tasks" element={<CompletedTasks />}/>
                     <Route exact path="/pending-tasks" element={<PendingTasks />}/>
-                    <Route path="/login" element={<Login />} />
+                    {/* <Route path="/login" element={<Login />} /> */}
                   </Routes>
                 </main>
               </div>

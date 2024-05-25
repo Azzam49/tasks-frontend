@@ -407,6 +407,8 @@ STATUS = DONE
 DONE:
 - setup user login context to control between login and dashboard pages
 - login page to use username & password fields for sending api request to fetch the token
+
+- Note : ALSO remove this from the App.js `<Route path="/login" element={<Login />} />`
 ---------------------------------------------------------------------------
 
 
@@ -443,13 +445,58 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 38_feature/fix-notifcation-and-standardlize-them-from-api-controller
 
-WORKING-ON:
+DONE:
 - currently if create task with fields empty, it will hit error and notify as success, so this need fix by:
     - controlling all notifcations from api controller, to control weather to send success/error notfication bases on api response
+
+BE branch supportig this : 21_bugfix/fix-response-of-task-to-completed-api
 ---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+39_feature/add-and-integrate-register-user-page
+
+WORKING-ON:
+- integrate the html register user page
+- modify user context to control to able display the register-page/login-page
+- control fields of register user page and add validation (2 password fields must match)
+- use register user api to be able to create user
+
+STEPS:
+- DONE : copy the whole the main element from the register.html
+    (and fix the following):
+    - add closing '/' on input element
+    - add closing '/' on img element
+    - fix the src attribute on img element
+    - replace 'for=' by 'htmlFor='
+- DONE : fix user context to control displaying between login and register pages
+- DONE : fix <a/> element on login page
+- DONE : fix <a/> element on register page
+- DONE : set fields control on register page using react useState
+- DONE : add handleSubmit and fields validation:
+    - (2 password fields must match)
+    - check other validation and do testing
+- DONE : send api request from register page to create user
+- CANCELLED : if api request user created successfully, auto navigate to login page
+    - note : cancelled because switching to other page using window.href.location won't let the notifcation display as page refreshes
+
+BE branch supportig this : 23_feature/remove-authentication-required-from-register-user-api
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+40_feature/store-username-and-user-id-on-user-context
+
+TODO:
+- store username and user-id on user context from token api
+- use username on welcome dashboard title
+- user user-id on task create/update apis
+---------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE

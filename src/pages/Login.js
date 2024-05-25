@@ -77,7 +77,7 @@ const Login = () => {
 
             <div className="border-top pt-3 mb-3">
                 <small className="text-muted">
-                    Need An Account? <a className="ml-2" href="register.html">Register Now</a>
+                    Need An Account? <a className="ml-2" href="/register">Register Now</a>
                 </small>
             </div>
 
