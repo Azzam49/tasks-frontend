@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react'
 import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 export const UserLoginContext = createContext({
     token: "",
@@ -21,10 +22,21 @@ function UserLoginProvider({children}) {
         }
     };
 
+    // control display register and login pages
+    const currentUrl = window.location.href;
+    let loginOrRegisterPage = '';
+
+    if (currentUrl.includes('/register')){
+        loginOrRegisterPage = <Register />;
+    } else {
+        loginOrRegisterPage = <Login />;
+    }
+
     return (
         <UserLoginContext.Provider value={provider}>
             {
-                token  ? children : <Login />
+                // token  ? children : <Login />
+                token  ? children : loginOrRegisterPage
             }
         </UserLoginContext.Provider>
     )
