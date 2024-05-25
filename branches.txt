@@ -456,10 +456,10 @@ BE branch supportig this : 21_bugfix/fix-response-of-task-to-completed-api
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 39_feature/add-and-integrate-register-user-page
 
-WORKING-ON:
+DONE:
 - integrate the html register user page
 - modify user context to control to able display the register-page/login-page
 - control fields of register user page and add validation (2 password fields must match)
@@ -488,8 +488,26 @@ BE branch supportig this : 23_feature/remove-authentication-required-from-regist
 
 
 ---------------------------------------------------------------------------
+STATUS = WORKING-ON
+40_feature/dashboard-page-adding-card-component
+
+WORKING-ON:
+- add card component
+- use 3 cards on dashboard to display info about ticket's status
+
+STEPS:
+- copy card elements from html template to the react page
+    - the copy includes <div class="container"> & <div class="row">
+    - replace class= with className=
+    - replace style="max-width: 18rem;" with style={{ maxWidth: '18rem' }}
+---------------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------------
 STATUS = TODO
-40_feature/store-username-and-user-id-on-user-context
+?_feature/store-username-and-user-id-on-user-context
 
 TODO:
 - store username and user-id on user context from token api
