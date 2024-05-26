@@ -488,10 +488,10 @@ BE branch supportig this : 23_feature/remove-authentication-required-from-regist
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 40_feature/dashboard-page-adding-card-component
 
-WORKING-ON:
+DONE:
 - add card component
 - use 3 cards on dashboard to display info about ticket's status
 
@@ -503,6 +503,19 @@ STEPS:
 ---------------------------------------------------------------------------
 
 
+---------------------------------------------------------------------------
+STATUS = WORKING-ON
+41_feature/dashboard-page-adding-charts
+
+WORKING-ON:
+- install chart js for react
+- add circled chart component on dashboard
+
+STEPS:
+- https://www.npmjs.com/package/react-chartjs-2
+- https://react-chartjs-2.js.org/examples/
+- npm i react-chartjs-2 chart.js
+---------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------
