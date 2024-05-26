@@ -1,15 +1,77 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from '../components/Card';
+import { Pie, Line } from 'react-chartjs-2';
+
+// required by 'react-chartjs-2' Charts
+import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+// Register components
+ChartJS.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
 
 const Home = () => {
+
+    const [tagsChartData, setTagsChartData] = useState({});
+    const [tasksLineData, setTasksLineData] = useState({})
+
+    useEffect(() => {
+        const fetchChartsData = async () => {
+          // Mock API response for charts
+          const data = {
+            tag_labels: ["Important", "Common", "Easy"],
+            tag_values: [10, 4, 3],
+
+            task_labels: ['May 16', 'May 17', 'May 18', 'May 19', 'May 20',
+            'May 21', 'May 22', 'May 23', 'May 24', 'May 25'],
+            task_values: [2, 12, 3, 1, 0, 5, 5, 0, 8, 9],
+          };
+
+          setTagsChartData({
+            labels: data.tag_labels,
+            datasets: [
+              {
+                label: 'Dataset Label',
+                data: data.tag_values,
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                ],
+                borderWidth: 1,
+              },
+            ],
+          });
+
+          setTasksLineData({
+            labels: data.task_labels,
+            datasets: [
+              {
+                label: 'Tasks Completed',
+                data: data.task_values,
+                backgroundColor: 'rgba(75,192,192,0.2)',
+                borderColor: 'rgba(75,192,192,1)',
+                borderWidth: 1,
+              },
+            ],
+          });
+
+        };
+
+        fetchChartsData();
+    }, []);
+
     return (
         <>
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 className="h2">Dashboard</h1>
             </div>
 
-            <div class="container">
-                <div class="row">
+            <div className="container">
+                <div className="row">
 
                     <div className="col-sm-8 col-md-4">
                         {/* <div className="card text-bg-primary mb-3" style={{ maxWidth: '18rem' }}>
@@ -52,7 +114,23 @@ const Home = () => {
                             bgColor="success"
                         />
                     </div>
+                </div>
+            </div>
 
+
+            <div className="container" style={{ marginTop: '80px' }}>
+                <div className="row justify-content-center">
+                    <div className="col-sm-12 col-md-6">
+                        <div className="chart-container" style={{ position: 'relative', height: '40vh', width: '100%' }}>
+                            {tagsChartData.labels ? <Pie data={tagsChartData} /> : <></>}
+                        </div>
+                    </div>
+
+                    <div className="col-sm-12 col-md-6">
+                    <div className="chart-container" style={{ position: 'relative', height: '40vh', width: '100%' }}>
+                        {tasksLineData.labels ? <Line data={tasksLineData} /> : <></>}
+                    </div>
+                    </div>
                 </div>
             </div>
 
