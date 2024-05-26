@@ -504,10 +504,10 @@ STEPS:
 
 
 ---------------------------------------------------------------------------
-STATUS = WORKING-ON
+STATUS = DONE
 41_feature/dashboard-page-adding-charts
 
-WORKING-ON:
+DONE:
 - install chart js for react
 - add circled chart component on dashboard
 
@@ -515,6 +515,15 @@ STEPS:
 - https://www.npmjs.com/package/react-chartjs-2
 - https://react-chartjs-2.js.org/examples/
 - npm i react-chartjs-2 chart.js
+---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = DONE
+42_bugfix/fix-empty-space-on-pages-on-mobile-screens
+
+DONE:
+- fix css sidebar that make empty space for mobile screens
 ---------------------------------------------------------------------------
 
 

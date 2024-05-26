@@ -18,6 +18,12 @@
 .sidebar{
   height: 100vh;
 }
+/* for mobile screens */
+@media (max-width: 600px) {
+  .sidebar {
+    height: auto;
+  }
+}
 @media (min-width: 768px) {
   .sidebar .offcanvas-lg {
     position: -webkit-sticky;
