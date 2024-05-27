@@ -10,6 +10,10 @@ ChartJS.register(ArcElement, CategoryScale, LinearScale, PointElement, LineEleme
 
 const Home = () => {
 
+    const [totalTasksCount, setTotalTasksCount] = useState(0)
+    const [pendingTasksCount, setPendingTasksCount] = useState(0)
+    const [completedTasksCount, setCompletedTasksCount] = useState(0)
+
     const [tagsChartData, setTagsChartData] = useState({});
     const [tasksLineData, setTasksLineData] = useState({})
 
@@ -17,13 +21,21 @@ const Home = () => {
         const fetchChartsData = async () => {
           // Mock API response for charts
           const data = {
+            total_tasks_count: 17,
+            pending_tasks_count: 10,
+            completed_tasks_count: 7,
+
             tag_labels: ["Important", "Common", "Easy"],
             tag_values: [10, 4, 3],
 
             task_labels: ['May 16', 'May 17', 'May 18', 'May 19', 'May 20',
             'May 21', 'May 22', 'May 23', 'May 24', 'May 25'],
-            task_values: [2, 12, 3, 1, 0, 5, 5, 0, 8, 9],
+            task_values: [0, 0, 2, 0, 0, 2, 1, 0, 0, 2],
           };
+
+          setTotalTasksCount(data.total_tasks_count);
+          setPendingTasksCount(data.pending_tasks_count);
+          setCompletedTasksCount(data.completed_tasks_count);
 
           setTagsChartData({
             labels: data.tag_labels,
@@ -82,7 +94,7 @@ const Home = () => {
                         </div> */}
                         <Card
                             cardHeader="No. Tasks"
-                            cardTitle="546 Task"
+                            cardTitle={`${totalTasksCount} Task`}
                             bgColor="primary"
                         />
                     </div>
@@ -96,7 +108,7 @@ const Home = () => {
                         </div> */}
                         <Card
                             cardHeader="No. Pending Tasks"
-                            cardTitle="100 Task"
+                            cardTitle={`${pendingTasksCount} Task`}
                             bgColor="warning"
                         />
                     </div>
@@ -110,7 +122,7 @@ const Home = () => {
                         </div> */}
                         <Card
                             cardHeader="No. Completed Tasks"
-                            cardTitle="446 Task"
+                            cardTitle={`${completedTasksCount} Task`}
                             bgColor="success"
                         />
                     </div>
