@@ -28,9 +28,9 @@ const Home = () => {
             tag_labels: ["Important", "Common", "Easy"],
             tag_values: [10, 4, 3],
 
-            task_labels: ['May 16', 'May 17', 'May 18', 'May 19', 'May 20',
+            completed_task_labels: ['May 16', 'May 17', 'May 18', 'May 19', 'May 20',
             'May 21', 'May 22', 'May 23', 'May 24', 'May 25'],
-            task_values: [0, 0, 2, 0, 0, 2, 1, 0, 0, 2],
+            completed_task_values: [0, 0, 2, 0, 0, 2, 1, 0, 0, 2],
           };
 
           setTotalTasksCount(data.total_tasks_count);
@@ -59,11 +59,11 @@ const Home = () => {
           });
 
           setTasksLineData({
-            labels: data.task_labels,
+            labels: data.completed_task_labels,
             datasets: [
               {
                 label: 'Tasks Completed',
-                data: data.task_values,
+                data: data.completed_task_values,
                 backgroundColor: 'rgba(75,192,192,0.2)',
                 borderColor: 'rgba(75,192,192,1)',
                 borderWidth: 1,
