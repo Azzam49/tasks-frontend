@@ -500,6 +500,8 @@ STEPS:
     - the copy includes <div class="container"> & <div class="row">
     - replace class= with className=
     - replace style="max-width: 18rem;" with style={{ maxWidth: '18rem' }}
+
+TODO FUTURE : check and use code sample of the branch '43_bugfix/fix-data-and-placeholders-of-the-dashboard-charts'
 ---------------------------------------------------------------------------
 
 
@@ -515,6 +517,8 @@ STEPS:
 - https://www.npmjs.com/package/react-chartjs-2
 - https://react-chartjs-2.js.org/examples/
 - npm i react-chartjs-2 chart.js
+
+TODO FUTURE : check and use code sample of the branch '43_bugfix/fix-data-and-placeholders-of-the-dashboard-charts'
 ---------------------------------------------------------------------------
 
 
@@ -526,6 +530,13 @@ DONE:
 - fix css sidebar that make empty space for mobile screens
 ---------------------------------------------------------------------------
 
+---------------------------------------------------------------------------
+STATUS = DONE
+43_bugfix/fix-data-and-placeholders-of-the-dashboard-charts
+
+DONE:
+- have better data examples and placeholders on the charts component
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = TODO
