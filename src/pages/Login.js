@@ -28,9 +28,11 @@ const Login = () => {
         }
 
         const token = result.access;
+        const userId = result.user_id;
+        const username = result.username;
         // alert(`token : ${result.access}`)
 
-        setUserLoginChange(token);
+        setUserLoginChange(token, userId, username);
 
         // notifySuccess('Login is Successfull!')
     }

@@ -4,7 +4,7 @@ import { UserLoginContext } from '../context/UserLoginProvider';
 
 const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, handleUpdateTask, currentTaskId}) => {
 
-    const { token, setUserLoginChange } = useContext(UserLoginContext);
+    const { token, userId, setUserLoginChange } = useContext(UserLoginContext);
 
     const [taskTitle, setTaskTitle] = useState(null)
     const [taskDescription, setTaskDescription] = useState(null)
@@ -21,7 +21,7 @@ const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, hand
         e.preventDefault();
 
         const dataObject = {
-            owner_id: 1, //todo : change this
+            owner_id: userId, //todo : change this
             title: taskTitle,
             description: taskDescription,
             tag_id: 1, //todo : change this

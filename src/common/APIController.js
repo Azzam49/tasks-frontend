@@ -14,7 +14,7 @@ export async function fetchData(apiURL, token, setUserLoginChange) {
             // alert(`Hey no auth!, response.status : ${response.status}`)
 
             // reset token and go to login page
-            setUserLoginChange("");
+            setUserLoginChange("", "", "");
             window.location.href="/";
             return
         }
@@ -43,7 +43,7 @@ export async function deleteData(apiURL, token, setUserLoginChange) {
             // alert(`Hey no auth!, response.status : ${response.status}`)
 
             // reset token and go to login page
-            setUserLoginChange("");
+            setUserLoginChange("", "", "");
             window.location.href="/";
             return
         }
@@ -88,7 +88,7 @@ export async function postPutData(method, apiURL, dataObject, token, setUserLogi
             // alert(`Hey no auth!, response.status : ${response.status}`)
 
             // reset token and go to login page
-            setUserLoginChange("");
+            setUserLoginChange("", "", "");
             window.location.href="/";
             return
         }

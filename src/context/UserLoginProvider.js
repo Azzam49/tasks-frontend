@@ -10,15 +10,25 @@ export const UserLoginContext = createContext({
 });
 
 const sessionTokenKey = 'session-token';
+const sessionUserid = 'session-userid';
+const sessionUsername = 'session-username';
 
 function UserLoginProvider({children}) {
     const [token, setToken] = useState(window.localStorage.getItem(sessionTokenKey));
+    const [userId, setUserId] = useState(window.localStorage.getItem(sessionUserid));
+    const [username, setUsername] = useState(window.localStorage.getItem(sessionUsername));
     const provider = {
         token,
-        setUserLoginChange: (token) => {
+        userId,
+        username,
+        setUserLoginChange: (token, userId, username) => {
             setToken(token);
+            setUserId(userId);
+            setUsername(username);
             //store in session
             window.localStorage.setItem(sessionTokenKey, token);
+            window.localStorage.setItem(sessionUserid, userId);
+            window.localStorage.setItem(sessionUsername, username);
         }
     };
 
