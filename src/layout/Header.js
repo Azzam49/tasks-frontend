@@ -4,12 +4,12 @@ import { UserLoginContext } from '../context/UserLoginProvider';
 
 const Header = () => {
 
-    const { setUserLoginChange } = useContext(UserLoginContext);
+    const { username, setUserLoginChange } = useContext(UserLoginContext);
 
     const handleLogout = () => {
 
         // alert("clicked logout")
-        setUserLoginChange("")
+        setUserLoginChange("", "", "")
 
         // reset the token by setUserLoginChange already enough to go to login page
         // window.location.href is just to change the browser's url
@@ -46,7 +46,7 @@ const Header = () => {
         </svg>
 
         <header className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-            <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Tasks App - Welcome John!</a>
+            <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">{`Tasks App - Welcome ${username}!`}</a>
             <ul className="navbar-nav flex-row d-md-none">
                 <li className="nav-item text-nowrap">
                     <button className="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@ const Header = () => {
                 <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary  ">
                     <div className="offcanvas-md offcanvas-end bg-body-tertiary" tabIndex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                         <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="sidebarMenuLabel">Tasks App - Welcome John!</h5>
+                            <h5 className="offcanvas-title" id="sidebarMenuLabel">{`Tasks App - Welcome ${username}!`}</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
