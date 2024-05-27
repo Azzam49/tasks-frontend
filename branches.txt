@@ -536,16 +536,18 @@ STATUS = DONE
 
 DONE:
 - have better data examples and placeholders on the charts component
+
+Note : have 2 pull requests (No.21 & 22)
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = TODO
-?_feature/store-username-and-user-id-on-user-context
+STATUS = DONE
+44_feature/store-username-and-user-id-on-user-context
 
-TODO:
+DONE:
 - store username and user-id on user context from token api
 - use username on welcome dashboard title
-- user user-id on task create/update apis
+- use user-id on task create/update apis
 ---------------------------------------------------------------------------
 
 
