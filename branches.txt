@@ -564,12 +564,22 @@ Note : may record this before the lecture 44_feature/store-username-and-user-id-
 --------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 46_feature/add-404-not-found-page
 
-TODO:
+DONE:
 - Add 404 not found page
 ---------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+STATUS = TODO
+47_bugfix/fix-tag-value-on-task-create-and-update-apis
+
+TODO:
+- Fix tag on create and update to assign correct tag_id value
+---------------------------------------------------------------------------
+
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE
