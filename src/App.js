@@ -3,6 +3,7 @@ import Home from './pages/Home.js';
 import Tasks from './pages/Tasks.js';
 import CompletedTasks from './pages/CompletedTasks.js';
 import PendingTasks from './pages/PendingTasks.js';
+import NotFound from './pages/NotFound';
 import Header from './layout/Header';
 import UserLoginProvider from '../src/context/UserLoginProvider';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -26,6 +27,7 @@ function App() {
                     <Route exact path="/completed-tasks" element={<CompletedTasks />}/>
                     <Route exact path="/pending-tasks" element={<PendingTasks />}/>
                     {/* <Route path="/login" element={<Login />} /> */}
+                    <Route path="*" element={<NotFound />} />
                   </Routes>
                 </main>
               </div>
