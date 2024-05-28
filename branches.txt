@@ -542,14 +542,34 @@ Note : have 2 pull requests (No.21 & 22)
 
 ---------------------------------------------------------------------------
 STATUS = DONE
-44_feature/store-username-and-user-id-on-user-context
+44_feature/store-username-and-user-id-on-user-context-and-use-them-on-task-create-and-on-dashboard-welcome
 
 DONE:
 - store username and user-id on user context from token api
 - use username on welcome dashboard title
 - use user-id on task create/update apis
+
+Note : may want to split on (2-3 lectures)
 ---------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------
+STATUS = DONE
+45_feature/use-charts-data-api-on-dashboard
+
+DONE:
+- use charts api on dashboard
+
+Note : may record this before the lecture 44_feature/store-username-and-user-id-on-user-context-and-use-them-on-task-create-and-on-dashboard-welcome
+--------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+STATUS = TODO
+46_feature/add-404-not-found-page
+
+TODO:
+- Add 404 not found page
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE
