@@ -573,10 +573,10 @@ DONE:
 
 
 ---------------------------------------------------------------------------
-STATUS = TODO
+STATUS = DONE
 47_bugfix/fix-tag-value-on-task-create-and-update-apis
 
-TODO:
+DONE:
 - Fix tag on create and update to assign correct tag_id value
 ---------------------------------------------------------------------------
 
