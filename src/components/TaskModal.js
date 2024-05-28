@@ -24,7 +24,7 @@ const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, hand
             owner_id: userId, //todo : change this
             title: taskTitle,
             description: taskDescription,
-            tag_id: 1, //todo : change this
+            tag_id: taskTag, //1, //todo : change this
         }
 
         if(modalType == "create"){
@@ -47,7 +47,7 @@ const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, hand
 
         setTaskTitle(taskData.title);
         setTaskDescription(taskData.description);
-        setTaskTag(taskData.tag);
+        setTaskTag(taskData.tag_id);
     }
 
     useEffect(() => {
@@ -101,7 +101,7 @@ const TaskModal = ({modalType, modalId, modalTitle, tags, handleCreateTask, hand
                                 onChange={(e) => setTaskTag(e.target.value)}>
                                 <option value="">Choose...</option>
                                 {tags.map((tag, index ) => (
-                                    <option key={index} value={tag}>{tag}</option>
+                                    <option key={index} value={tag.id}>{tag.name}</option>
                                 ))}
                             </select>
                         </div>
