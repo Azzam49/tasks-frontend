@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Card from '../components/Card';
 import { Pie, Line } from 'react-chartjs-2';
+
+import { fetchData } from '../common/APIController';
+import { UserLoginContext } from '../context/UserLoginProvider';
 
 // required by 'react-chartjs-2' Charts
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
@@ -9,6 +12,8 @@ ChartJS.register(ArcElement, CategoryScale, LinearScale, PointElement, LineEleme
 
 
 const Home = () => {
+
+    const { token, setUserLoginChange } = useContext(UserLoginContext);
 
     const [totalTasksCount, setTotalTasksCount] = useState(0)
     const [pendingTasksCount, setPendingTasksCount] = useState(0)
@@ -20,18 +25,20 @@ const Home = () => {
     useEffect(() => {
         const fetchChartsData = async () => {
           // Mock API response for charts
-          const data = {
-            total_tasks_count: 17,
-            pending_tasks_count: 10,
-            completed_tasks_count: 7,
+        //   const data = {
+        //     total_tasks_count: 17,
+        //     pending_tasks_count: 10,
+        //     completed_tasks_count: 7,
 
-            tag_labels: ["Important", "Common", "Easy"],
-            tag_values: [10, 4, 3],
+        //     tag_labels: ["Important", "Common", "Easy"],
+        //     tag_values: [10, 4, 3],
 
-            completed_task_labels: ['May 16', 'May 17', 'May 18', 'May 19', 'May 20',
-            'May 21', 'May 22', 'May 23', 'May 24', 'May 25'],
-            completed_task_values: [0, 0, 2, 0, 0, 2, 1, 0, 0, 2],
-          };
+        //     completed_task_labels: ['May 16', 'May 17', 'May 18', 'May 19', 'May 20',
+        //     'May 21', 'May 22', 'May 23', 'May 24', 'May 25'],
+        //     completed_task_values: [0, 0, 2, 0, 0, 2, 1, 0, 0, 2],
+        //   };
+
+        const data = await fetchData('get/charts-data/', token, setUserLoginChange);
 
           setTotalTasksCount(data.total_tasks_count);
           setPendingTasksCount(data.pending_tasks_count);
