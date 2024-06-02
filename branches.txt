@@ -484,6 +484,13 @@ STEPS:
     - note : cancelled because switching to other page using window.href.location won't let the notifcation display as page refreshes
 
 BE branch supportig this : 23_feature/remove-authentication-required-from-register-user-api
+
+Future fix:
+    - make the href on register page to href="/" and not href="login",
+    this will helps during integrating react with django :
+    <small class="text-muted">
+                            Already have an account? <a class="ml-2" href="/">Login Now</a>
+                        </small>
 ---------------------------------------------------------------------------
 
 
@@ -580,6 +587,14 @@ DONE:
 - Fix tag on create and update to assign correct tag_id value
 ---------------------------------------------------------------------------
 
+
+---------------------------------------------------------------------------
+STATUS = DONE
+48_feature/fixes-for-deployment
+
+DONE:
+- Fixes for deployment, includes url changes. for deployment execute npm run build
+---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
 STATUS = FUTURE

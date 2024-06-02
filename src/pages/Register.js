@@ -100,7 +100,7 @@ const Register = () => {
 
                     <div class="border-top pt-3 mb-3">
                         <small class="text-muted">
-                            Already have an account? <a class="ml-2" href="/login">Login Now</a>
+                            Already have an account? <a class="ml-2" href="/ui/">Login Now</a>
                         </small>
                     </div>
 

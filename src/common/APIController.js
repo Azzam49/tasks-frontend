@@ -15,7 +15,7 @@ export async function fetchData(apiURL, token, setUserLoginChange) {
 
             // reset token and go to login page
             setUserLoginChange("", "", "");
-            window.location.href="/";
+            window.location.href="/ui";
             return
         }
 
@@ -44,7 +44,7 @@ export async function deleteData(apiURL, token, setUserLoginChange) {
 
             // reset token and go to login page
             setUserLoginChange("", "", "");
-            window.location.href="/";
+            window.location.href="/ui";
             return
         }
 
@@ -89,7 +89,7 @@ export async function postPutData(method, apiURL, dataObject, token, setUserLogi
 
             // reset token and go to login page
             setUserLoginChange("", "", "");
-            window.location.href="/";
+            window.location.href="/ui/";
             return
         }
 

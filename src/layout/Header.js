@@ -13,7 +13,7 @@ const Header = () => {
 
         // reset the token by setUserLoginChange already enough to go to login page
         // window.location.href is just to change the browser's url
-        window.location.href = "/";
+        window.location.href = "/ui";
     }
 
     return (
@@ -71,7 +71,7 @@ const Header = () => {
                                 <NavLink
                                     className="nav-link d-flex align-items-center gap-2"
                                     activeClassName="active"
-                                    aria-current="page" to="/">
+                                    aria-current="page" to="/ui/dashboard">
                                     <svg className="bi"><use xlinkHref="#house"/></svg>
                                     Dashboard
                                 </NavLink>
@@ -80,7 +80,7 @@ const Header = () => {
                                 <NavLink
                                     className="nav-link d-flex align-items-center gap-2"
                                     activeClassName="active"
-                                    to="/tasks">
+                                    to="/ui/tasks">
                                     <svg className="bi"><use xlinkHref="#file-earmark"/></svg>
                                     Tasks
                                 </NavLink>
@@ -89,7 +89,7 @@ const Header = () => {
                                 <NavLink
                                     className="nav-link d-flex align-items-center gap-2"
                                     activeClassName="active"
-                                    to="/pending-tasks">
+                                    to="/ui/pending-tasks">
                                     <svg className="bi"><use xlinkHref="#file-earmark-text"/></svg>
                                     Pending Tasks
                                 </NavLink>
@@ -98,7 +98,7 @@ const Header = () => {
                                 <NavLink
                                     className="nav-link d-flex align-items-center gap-2"
                                     activeClassName="active"
-                                    to="/completed-tasks">
+                                    to="/ui/completed-tasks">
                                     <svg className="bi"><use xlinkHref="#check-circle"/></svg>
                                     Completed Tasks
                                 </NavLink>

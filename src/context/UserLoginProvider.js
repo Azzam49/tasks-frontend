@@ -29,6 +29,8 @@ function UserLoginProvider({children}) {
             window.localStorage.setItem(sessionTokenKey, token);
             window.localStorage.setItem(sessionUserid, userId);
             window.localStorage.setItem(sessionUsername, username);
+
+            window.location.href = "/ui/dashboard";
         }
     };
 
@@ -36,7 +38,7 @@ function UserLoginProvider({children}) {
     const currentUrl = window.location.href;
     let loginOrRegisterPage = '';
 
-    if (currentUrl.includes('/register')){
+    if (currentUrl.includes('/ui/register')){
         loginOrRegisterPage = <Register />;
     } else {
         loginOrRegisterPage = <Login />;

@@ -22,10 +22,10 @@ function App() {
                 <Header/>
                 <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                   <Routes>
-                    <Route exact path="/" element={<Home />}/>
-                    <Route exact path="/tasks" element={<Tasks />}/>
-                    <Route exact path="/completed-tasks" element={<CompletedTasks />}/>
-                    <Route exact path="/pending-tasks" element={<PendingTasks />}/>
+                    <Route exact path="/ui/dashboard" element={<Home />}/>
+                    <Route exact path="/ui/tasks" element={<Tasks />}/>
+                    <Route exact path="/ui/completed-tasks" element={<CompletedTasks />}/>
+                    <Route exact path="/ui/pending-tasks" element={<PendingTasks />}/>
                     {/* <Route path="/login" element={<Login />} /> */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>
