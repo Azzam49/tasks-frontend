@@ -594,6 +594,8 @@ STATUS = DONE
 
 DONE:
 - Fixes for deployment, includes url changes. for deployment execute npm run build
+
+Note : this branch is not merged back to master
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------

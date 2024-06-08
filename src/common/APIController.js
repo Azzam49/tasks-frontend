@@ -1,8 +1,11 @@
 import { notifySuccess, notifyError } from '../common/Common';
 
+// const apiHost = "http://localhost:8000/";
+const apiHost = "https://azzam49.pythonanywhere.com/";
+
 export async function fetchData(apiURL, token, setUserLoginChange) {
     try {
-        const response = await fetch('http://localhost:8000/' + apiURL, {
+        const response = await fetch(apiHost + apiURL, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -30,7 +33,7 @@ export async function fetchData(apiURL, token, setUserLoginChange) {
 
 export async function deleteData(apiURL, token, setUserLoginChange) {
     try {
-        const response = await fetch('http://localhost:8000/' + apiURL, {
+        const response = await fetch(apiHost + apiURL, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -73,8 +76,10 @@ export async function postPutData(method, apiURL, dataObject, token, setUserLogi
     let successMsg = customMsg?.success || `Task ${action} was successful!`;
 
     try {
-        const response = await fetch('http://localhost:8000/' + apiURL, {
+        const response = await fetch(apiHost + apiURL, {
             method: method,
+            credentials: 'include',
+            mode: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
