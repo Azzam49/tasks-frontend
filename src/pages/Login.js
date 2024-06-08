@@ -15,6 +15,10 @@ const Login = () => {
 
         const apiURL = `token/`;
 
+        // seems no need to have this
+        // as for login page, notfication won't be displayed,
+        // as on login we are redirect from /ui to /ui/dashboard on production
+        // the redirection refreshes the page which cause notifcation to no display
         let customMsg = {
             "success": "Login is Successfull!",
             "error": "Error on login, try again."
@@ -79,7 +83,7 @@ const Login = () => {
 
             <div className="border-top pt-3 mb-3">
                 <small className="text-muted">
-                    Need An Account? <a className="ml-2" href="/register">Register Now</a>
+                    Need An Account? <a className="ml-2" href="/ui/register">Register Now</a>
                 </small>
             </div>
 
