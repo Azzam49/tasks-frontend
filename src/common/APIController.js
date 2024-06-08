@@ -78,8 +78,9 @@ export async function postPutData(method, apiURL, dataObject, token, setUserLogi
     try {
         const response = await fetch(apiHost + apiURL, {
             method: method,
-            credentials: 'include',
-            mode: 'same-origin',
+            // seems not needed, worked without it
+            // credentials: 'include',
+            // mode: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
